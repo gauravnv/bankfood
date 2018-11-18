@@ -486,8 +486,6 @@ class Distributor extends Component {
                     </div>
 
                   </fieldset>
-
-
                 </form>
                 <form acceptCharset="utf-8">
 
