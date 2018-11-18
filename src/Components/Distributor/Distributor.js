@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import "./Distributor.css";
+import $ from "jquery";
+import "react-table/react-table.css";
 import "../Admin/Admin.css";
+const JsonTable = require("ts-react-json-table");
+
 
 class Distributor extends Component {
   constructor() {
@@ -13,6 +17,7 @@ class Distributor extends Component {
       location: "",
       donorId: 0,
       distributorId: 0,
+        recipientId: 0,
       city: "",
       transactionId: 0,
       transactionDate: null,
@@ -61,6 +66,10 @@ class Distributor extends Component {
     this.setState({ distributorId: event.target.value });
   }
 
+    handleRecipientIdChange(event) {
+        this.setState({ recipientId: event.target.value });
+    }
+
   handleTransactionIdChange(event) {
     this.setState({ transactionId: event.target.value });
   }
@@ -81,7 +90,123 @@ class Distributor extends Component {
     this.setState({ warehouseCity: event.target.value });
   }
 
-  handleQ1() {}
+  handleQ1() {
+      const url = "https://mou23mohgg.execute-api.ca-central-1.amazonaws.com/qa/";
+
+      let self = this;
+      let loc = "'" + self.state.location + "'";
+      let city = "'" + self.state.city + "'";
+
+      $.get(url + "?" + "warehouse_location=" + loc + "&warehouse_city=" + city , function(data, status){
+          self.setState({
+              rows: data.rows
+          });
+      });
+
+  }
+
+  handleQ2() {
+      const url = "https://d1sue73n0k.execute-api.ca-central-1.amazonaws.com/qa/";
+      let self =this;
+
+      let id =  "'" + self.state.distributorId + "'";
+
+      $.get(url + "?" + "id=" + id, function(data, status){
+          self.setState({
+              rows: data.rows
+          });
+      });
+  }
+
+  handleQ3() {
+      const url = "https://inyniwkadg.execute-api.ca-central-1.amazonaws.com/qa/";
+      let self = this;
+      $.get(url, function(data, status){
+          self.setState({
+              rows: data.rows
+          });
+      });
+
+
+  }
+
+  handleQ4() {
+    const url = "https://7hf0omy7k8.execute-api.ca-central-1.amazonaws.com/qa/"
+      let self = this;
+      let id =  "'" + self.state.foodId + "'";
+      let locn =  "'" + self.state.warehouseLocation + "'";
+      let city =  "'" + self.state.warehouseCity + "'";
+
+      $.get(url + "?" + "id=" + id + "&warehouse_city=" + city + "&warehouse_location=" + locn, function(data, status){
+          self.setState({
+              rows: data.rows
+          });
+      });
+  }
+
+  handleQ5() {
+    const url = "https://enaxvtwxta.execute-api.ca-central-1.amazonaws.com/qa/";
+      let self = this;
+      let id =  "'" + self.state.transactionId + "'";
+      let date = "'" + self.state.transactionDate + "'";
+      let time = "'" + self.state.transactionTime + "'";
+
+      $.get(url + "?" + "id=" + id + "&date=" + date + "&time=" + time, function(data, status){
+          self.setState({
+              rows: data.rows
+          });
+      });
+  }
+
+  handleQ6() {
+    const url = "https://07i5f93cd2.execute-api.ca-central-1.amazonaws.com/QA/";
+      let self = this;
+      let id =  "'" + self.state.foodId + "'";
+      let expiry_date =  "'" + self.state.expiryDate + "'";
+      let food_type_id =  "'" + self.state.foodTypeId + "'";
+      let donor_id =  "'" + self.state.donorId + "'";
+      let loc =  "'" + self.state.warehouseLocation + "'";
+      let city =  "'" + self.state.warehouseCity + "'";
+
+      $.get(url + "?" + "warehouse_location=" + loc + "&warehouse_city=" + city + "&id=" + id + "&expiry_date=" + expiry_date + "&ftid=" + food_type_id + "&did=" + donor_id , function(data, status){
+          self.setState({
+              rows: data.rows
+          });
+      });
+
+  }
+
+  handleQ8() {
+      let self = this;
+      const url = "https://o53bx0b9y3.execute-api.ca-central-1.amazonaws.com/qa/";
+      let id = "'" + self.state.foodId + "'";
+
+      $.get(url + "?" + "&id=" + id, function(data, status){
+          self.setState({
+              rows: data.rows
+          });
+      });
+  }
+
+  handleQ9() {
+    const url = "https://mnp2fjcin2.execute-api.ca-central-1.amazonaws.com/qa/";
+      let self = this;
+
+      let transaction_id ="'" + self.state.transactionId + "'";
+      let food_id ="'" + self.state.foodId + "'";
+      let distributor_id = "'" + self.state.distributorId + "'";
+      let recipient_id = "'" + self.state.recipientId + "'";
+      let transaction_date = "'" + self.state.transactionDate + "'";
+      let transaction_time  = "'" + self.state.transactionTime + "'";
+      let office_location = "'" + self.state.officeLocation + "'";
+      let office_city = "'" + self.state.officeCity + "'";
+      $.get(url + "?" + "tid=" + transaction_id + "&fid=" + food_id + "&did=" + distributor_id + "&rid=" + recipient_id + "&date=" + transaction_date + "&time=" + transaction_time + "&office_location=" + office_location + "&office_city=" + office_city  , function(data, status){
+          self.setState({
+              rows: data.rows
+          });
+      });
+  }
+
 
   render() {
     return (
@@ -90,6 +215,8 @@ class Distributor extends Component {
           <h1 class="f3 f2-m f1-l fw4 black-90 mv3">Distributor</h1>
           <hr />
         </header>
+
+          <JsonTable rows={this.state.rows} />
 
         <table className="f6 w-100 mw8 center" cellSpacing="0">
           <thead>
@@ -131,7 +258,7 @@ class Distributor extends Component {
                       className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
                       type="button"
                       value="Submit"
-                      onClick={this.handleQ1}
+                      onClick={this.handleQ1.bind(this)}
                     />
                   </div>
                 </form>
@@ -283,7 +410,7 @@ class Distributor extends Component {
             <tr className="stripe-dark">
               <td className="pa3">6.</td>
               <td className="pa3">
-                Distributors can INSERT/DELETE/UPDATE food
+                Distributors can INSERT/DELETE food
               </td>
               <article className="pa4 black-80">
                 <form acceptCharset="utf-8">
@@ -296,14 +423,7 @@ class Distributor extends Component {
                         onChange={this.handleFoodIdChange.bind(this)}
                       />
                     </div>
-                    <div className="mt3">
-                      <input
-                        className="pa2 input-reset ba bg-transparent"
-                        type="text"
-                        placeholder="Expiry Date"
-                        onChange={this.handleExpiryDateChange.bind(this)}
-                      />
-                    </div>
+
                     <div className="mt3">
                       <input
                         className="pa2 input-reset ba bg-transparent"
@@ -320,6 +440,14 @@ class Distributor extends Component {
                         onChange={this.handleDonorIdChange.bind(this)}
                       />
                     </div>
+                      <div className="mt3">
+                          <input
+                              className="pa2 input-reset ba bg-transparent"
+                              type="text"
+                              placeholder="Expiry Date"
+                              onChange={this.handleExpiryDateChange.bind(this)}
+                          />
+                      </div>
                     <div className="mt3">
                       <input
                         className="pa2 input-reset ba bg-transparent"
@@ -356,35 +484,11 @@ class Distributor extends Component {
                         onChange={this.handleFoodIdChange.bind(this)}
                       />
                     </div>
-                    <div className="mt3">
-                      <input
-                        className="pa2 input-reset ba bg-transparent"
-                        type="text"
-                        placeholder="Expiry Date"
-                        onChange={this.handleExpiryDateChange.bind(this)}
-                      />
-                    </div>
+
                   </fieldset>
-                  <div className="mt3">
-                    <input
-                      className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                      type="button"
-                      value="Update"
-                      onClick={this.handleQ7.bind(this)}
-                    />
-                  </div>
                 </form>
                 <form acceptCharset="utf-8">
-                  <fieldset id="query_7" className="ba b--transparent ph0 mh0">
-                    <div className="mt3">
-                      <input
-                        className="pa2 input-reset ba bg-transparent"
-                        type="text"
-                        placeholder="Food ID"
-                        onChange={this.handleFoodIdChange.bind(this)}
-                      />
-                    </div>
-                  </fieldset>
+
                   <div className="mt3">
                     <input
                       className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
