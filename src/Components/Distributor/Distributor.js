@@ -101,14 +101,14 @@ class Distributor extends Component {
           </thead>
           <tbody className="lh-copy">
             <tr className="stripe-dark">
-              <td className="pa3">15.</td>
+              <td className="pa3">1.</td>
               <td className="pa3">
                 For a particular warehouse, group all the foods by food types
                 (and show their count)
               </td>
               <article className="pa4 black-80">
                 <form acceptCharset="utf-8">
-                  <fieldset id="query_18" className="ba b--transparent ph0 mh0">
+                  <fieldset id="query_1" className="ba b--transparent ph0 mh0">
                     <div className="mt3">
                       <input
                         className="pa2 input-reset ba bg-transparent"
@@ -139,13 +139,13 @@ class Distributor extends Component {
             </tr>
 
             <tr className="stripe-dark">
-              <td className="pa3">16.</td>
+              <td className="pa3">2.</td>
               <td className="pa3">
                 View food at the warehouse where the distributor works
               </td>
               <article className="pa4 black-80">
                 <form acceptCharset="utf-8">
-                  <fieldset id="query_19" className="ba b--transparent ph0 mh0">
+                  <fieldset id="query_2" className="ba b--transparent ph0 mh0">
                     <div className="mt3">
                       <input
                         className="pa2 input-reset ba bg-transparent"
@@ -168,14 +168,14 @@ class Distributor extends Component {
             </tr>
 
             <tr className="stripe-dark">
-              <td className="pa3">17.</td>
+              <td className="pa3">3.</td>
               <td className="pa3">
                 Distributors can query for list of food and food types
               </td>
               <article className="pa4 black-80">
                 <form action="#dtable" acceptCharset="utf-8">
                   <fieldset
-                    id="query_20"
+                    id="query_3"
                     className="ba b--transparent ph0 mh0"
                   />
                   <div className="mt3">
@@ -191,7 +191,7 @@ class Distributor extends Component {
             </tr>
 
             <tr className="stripe-dark">
-              <td className="pa3">18.</td>
+              <td className="pa3">4.</td>
               <td className="pa3">
                 A distributor could UPDATE the location of a food stored in a
                 certain warehouse to be stored in a different warehouse
@@ -199,7 +199,7 @@ class Distributor extends Component {
               </td>
               <article className="pa4 black-80">
                 <form acceptCharset="utf-8">
-                  <fieldset id="query_21" className="ba b--transparent ph0 mh0">
+                  <fieldset id="query_4" className="ba b--transparent ph0 mh0">
                     <div className="mt3">
                       <input
                         className="pa2 input-reset ba bg-transparent"
@@ -238,11 +238,11 @@ class Distributor extends Component {
             </tr>
 
             <tr className="stripe-dark">
-              <td className="pa3">19.</td>
+              <td className="pa3">5.</td>
               <td className="pa3">A distributor can UPDATE a transaction</td>
               <article className="pa4 black-80">
                 <form acceptCharset="utf-8">
-                  <fieldset id="query_22" className="ba b--transparent ph0 mh0">
+                  <fieldset id="query_5" className="ba b--transparent ph0 mh0">
                     <div className="mt3">
                       <input
                         className="pa2 input-reset ba bg-transparent"
@@ -281,13 +281,13 @@ class Distributor extends Component {
             </tr>
 
             <tr className="stripe-dark">
-              <td className="pa3">20.</td>
+              <td className="pa3">6.</td>
               <td className="pa3">
                 Distributors can INSERT/DELETE/UPDATE food
               </td>
               <article className="pa4 black-80">
                 <form acceptCharset="utf-8">
-                  <fieldset id="query_23" className="ba b--transparent ph0 mh0">
+                  <fieldset id="query_6" className="ba b--transparent ph0 mh0">
                     <div className="mt3">
                       <input
                         className="pa2 input-reset ba bg-transparent"
@@ -375,7 +375,7 @@ class Distributor extends Component {
                   </div>
                 </form>
                 <form acceptCharset="utf-8">
-                  <fieldset id="query_24" className="ba b--transparent ph0 mh0">
+                  <fieldset id="query_7" className="ba b--transparent ph0 mh0">
                     <div className="mt3">
                       <input
                         className="pa2 input-reset ba bg-transparent"
@@ -398,14 +398,14 @@ class Distributor extends Component {
             </tr>
 
             <tr className="stripe-dark">
-              <td className="pa3">21.</td>
+              <td className="pa3">7.</td>
               <td className="pa3">
                 A distributor can add a transaction by an INSERT of the
                 transaction in the transactions table
               </td>
               <article className="pa4 black-80">
                 <form acceptCharset="utf-8">
-                  <fieldset id="query_25" className="ba b--transparent ph0 mh0">
+                  <fieldset id="query_8" className="ba b--transparent ph0 mh0">
                     <div className="mt3">
                       <input
                         className="pa2 input-reset ba bg-transparent"

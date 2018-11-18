@@ -46,17 +46,13 @@ class Recipient extends Component {
           </thead>
           <tbody className="lh-copy">
             <tr className="stripe-dark">
-              <td className="pa3">22.</td>
+              <td className="pa3">1.</td>
               <td className="pa3">
                 View previous transactions with relevant fields
               </td>
               <article className="pa4 black-80">
-                <form
-                  action="sign-up_submit"
-                  method="get"
-                  accept-charset="utf-8"
-                >
-                  <fieldset id="query_26" className="ba b--transparent ph0 mh0">
+                <form acceptCharset="utf-8">
+                  <fieldset id="query_1" className="ba b--transparent ph0 mh0">
                     <div className="mt3">
                       <input
                         className="pa2 input-reset ba bg-transparent"
@@ -79,15 +75,11 @@ class Recipient extends Component {
             </tr>
 
             <tr className="stripe-dark">
-              <td className="pa3">23.</td>
+              <td className="pa3">2.</td>
               <td className="pa3">View available food at certain locations</td>
               <article className="pa4 black-80">
-                <form
-                  action="sign-up_submit"
-                  method="get"
-                  accept-charset="utf-8"
-                >
-                  <fieldset id="query_27" className="ba b--transparent ph0 mh0">
+                <form acceptCharset="utf-8">
+                  <fieldset id="query_2" className="ba b--transparent ph0 mh0">
                     <div className="mt3">
                       <input
                         className="pa2 input-reset ba bg-transparent"
