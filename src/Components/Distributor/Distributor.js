@@ -129,7 +129,7 @@ class Distributor extends Component {
                   <div className="mt3">
                     <input
                       className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                      type="submit"
+                      type="button"
                       value="Submit"
                       onClick={this.handleQ1}
                     />
@@ -158,7 +158,7 @@ class Distributor extends Component {
                   <div className="mt3">
                     <input
                       className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                      type="submit"
+                      type="button"
                       value="Submit"
                       onClick={this.handleQ2.bind(this)}
                     />
@@ -181,7 +181,7 @@ class Distributor extends Component {
                   <div className="mt3">
                     <input
                       className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                      type="submit"
+                      type="button"
                       value="Submit"
                       onClick={this.handleQ3.bind(this)}
                     />
@@ -228,7 +228,7 @@ class Distributor extends Component {
                   <div className="mt3">
                     <input
                       className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                      type="submit"
+                      type="button"
                       value="Update"
                       onClick={this.handleQ4.bind(this)}
                     />
@@ -271,7 +271,7 @@ class Distributor extends Component {
                   <div className="mt3">
                     <input
                       className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                      type="submit"
+                      type="button"
                       value="Update"
                       onClick={this.handleQ5.bind(this)}
                     />
@@ -340,7 +340,7 @@ class Distributor extends Component {
                   <div className="mt3">
                     <input
                       className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                      type="submit"
+                      type="button"
                       value="Insert"
                       onClick={this.handleQ6.bind(this)}
                     />
@@ -368,7 +368,7 @@ class Distributor extends Component {
                   <div className="mt3">
                     <input
                       className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                      type="submit"
+                      type="button"
                       value="Update"
                       onClick={this.handleQ7.bind(this)}
                     />
@@ -388,7 +388,7 @@ class Distributor extends Component {
                   <div className="mt3">
                     <input
                       className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                      type="submit"
+                      type="button"
                       value="Delete"
                       onClick={this.handleQ8.bind(this)}
                     />
@@ -474,7 +474,7 @@ class Distributor extends Component {
                   <div className="mt3">
                     <input
                       className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                      type="submit"
+                      type="button"
                       value="Insert"
                       onClick={this.handleQ9.bind(this)}
                     />
