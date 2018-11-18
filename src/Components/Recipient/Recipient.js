@@ -2,13 +2,11 @@ import React, { Component } from "react";
 import "./Recipient.css";
 import "../Admin/Admin.css";
 import $ from "jquery";
-// // Import React Table
-// import ReactTable from "react-table";
-// import "react-table/react-table.css";
+import ReactTable from "react-table";
+import "react-table/react-table.css";
 
-// // import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
-const JsonTable = require("ts-react-json-table");
+// const JsonTable = require("ts-react-json-table");
 
 class Recipient extends Component {
   constructor() {
@@ -34,23 +32,32 @@ class Recipient extends Component {
     this.setState({ warehouseCity: event.target.value });
   }
 
-//   getCols() {
-
-//   }
-
   handleQ1() {
     const url = "https://jx7hv5lg7d.execute-api.ca-central-1.amazonaws.com/qa/";
     let self = this;
     let id = "'" + self.state.recipientId + "'";
 
     $.get(url + "?" + "id=" + id, function(data, status) {
-      console.log(data.rows);
-      self.setState({
-        rows: data.rows
-      });
-    });
-
-    self.getCols();
+        if (data.rows.length > 0) {
+            var columns = Object.keys(data.rows[0]).map((key, id) => {
+              return {
+                Header: key,
+                accessor: key
+              };
+            });
+          } else {
+            columns = {
+              Header: "None Found",
+              accessor: "No Result"
+            };
+          }
+  
+          self.setState({
+            rows: data.rows,
+            cols: columns
+          });
+        }
+      );
   }
 
   handleQ2() {
@@ -63,9 +70,23 @@ class Recipient extends Component {
     $.get(
       url + "?" + "warehouse_location=" + loc + "&warehouse_city=" + city,
       function(data, status) {
-        console.log(data.rows);
+        if (data.rows.length > 0) {
+          var columns = Object.keys(data.rows[0]).map((key, id) => {
+            return {
+              Header: key,
+              accessor: key
+            };
+          });
+        } else {
+          columns = {
+            Header: "None Found",
+            accessor: "No Result"
+          };
+        }
+
         self.setState({
-          rows: data.rows
+          rows: data.rows,
+          cols: columns
         });
       }
     );
@@ -75,12 +96,11 @@ class Recipient extends Component {
     return (
       <div>
         <header className="tc ph4">
-          <h1 class="f3 f2-m f1-l fw4 black-90 mv3">Recipient</h1>
+          <h1 className="f3 f2-m f1-l fw4 black-90 mv3">Recipient</h1>
           <hr />
         </header>
-        {/* <ReactTable data={this.state.rows} columns={this.state.cols} /> */}
 
-        <JsonTable rows={this.state.rows} />
+        {/* <JsonTable rows={this.state.rows} /> */}
         <table className="f6 w-100 mw8 center" cellSpacing="0">
           <thead>
             <tr className="stripe-dark">
@@ -155,6 +175,8 @@ class Recipient extends Component {
             </tr>
           </tbody>
         </table>
+
+        <ReactTable data={this.state.rows} columns={this.state.cols} />
       </div>
     );
   }
