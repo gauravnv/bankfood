@@ -234,55 +234,164 @@ class Admin extends Component {
 
   
   handleQ10() {
-    const url = "";
+    const url = "https://avhky3sfwb.execute-api.ca-central-1.amazonaws.com/qa/";
+
+    let self = this;
+    let subvolunteer_id = "'" + self.state.volunteerId + "'";
+    let name = "'" + self.state.name + "'";
+    let email =  "'" + self.state.email + "'";
+    let table = "'" + self.state.tableName + "'";
+        let city = "'" + self.state.city + "'";
+        let locn = "'" + self.state.location + "'";
+        
+        $.get(url + "?" + "table=" + table + "&location=" + locn + "&city=" + city + "&vemail_address=" + email + "&vname=" + name + "&subvolunteer_id=" + subvolunteer_id  + "&volunteer_id=" + subvolunteer_id, function(data, status){
+            self.setState({
+                rows: data.rows
+            });
+        });
   };
 
   
   handleQ105() {
-    const url = "";
+    const url = "https://1ri3o5y1me.execute-api.ca-central-1.amazonaws.com/qa/";
+
+    let self = this;
+    let volunteer_id = "'" + self.state.volunteerId + "'";
+    let name = "'" + self.state.name + "'";
+    let email =  "'" + self.state.email + "'";
+   $.get(url + "?" + "email=" + email + "&name=" + name + "&volunteer_id=" + volunteer_id, function(data, status){
+           self.setState({
+                 rows: data.rows
+            });
+      });
   };
 
   
   handleQ11() {
-    const url = "";
+    const url = "https://jyed8mqryf.execute-api.ca-central-1.amazonaws.com/qa/";
+
+
+    let self = this;
+    let loc = "'" + self.state.location+ "'";
+    let city = "'" + self.state.city + "'";
+
+    $.get(url + "?" + "warehouse_location=" + loc + "&warehouse_city=" + city, function(data, status){
+        self.setState({
+            rows: data.rows
+        });
+    });
   };
 
   
   handleQ12() {
-    const url = "";
+    const url = "https://iua8jiau20.execute-api.ca-central-1.amazonaws.com/qa/";
+
+    let self = this;
+    let id = "'" + self.state.volunteerId+ "'";
+
+    $.get(url + "?" + "id=" + id , function(data, status){
+        self.setState({
+            rows: data.rows
+        });
+    });
   };
 
   
   handleQ13() {
-    const url = "";
+    const url = "https://fhbd8zysxk.execute-api.ca-central-1.amazonaws.com/QA/admin/outreach";
+
+    let self = this;
+    $.get(url, function(data, status){
+        self.setState({
+            rows: data.rows
+        });
+    });
   };
 
   
   handleQ14() {
-    const url = "";
+    const url = "https://4mcapjbhx2.execute-api.ca-central-1.amazonaws.com/qa/";
+
+    let self = this;
+    let loc = "'" + self.state.officeLocation + "'";
+    let city = "'" + self.state.officeCity + "'";
+    let date = "'" + self.state.transactionDate + "'";
+    let time = "'" + self.state.transactionTime + "'";
+
+        $.get(url + "?" + "office_location=" + loc + "&office_city=" + city + "&date=" + date + "&time=" + time, function(data, status){
+            self.setState({
+                rows: data.rows
+            });
+        });
   };
 
   
   handleQ15() {
-    const url = "";
+    const url = "https://p3qdzl69pi.execute-api.ca-central-1.amazonaws.com/qa/";
+
+    let self = this;
+    $.get(url, function(data, status){
+        self.setState({
+            rows: data.rows
+        });
+    });
   };
 
   handleQ16() {
-    const url = "";
+    const url = "https://79cce3elw7.execute-api.ca-central-1.amazonaws.com/qa/";
+
+    let self = this;
+    let from = "'" + self.state.fromTransactionTime + "'";
+    let to = "'" + self.state.toTransactionTime + "'";
+
+        $.get(url + "?" + "from=" + from + "&to=" + to, function(data, status){
+            self.setState({
+                rows: data.rows
+            });
+        });
   };
 
   handleQ17() {
-    const url = "";
+    const url = "https://j948s9iktl.execute-api.ca-central-1.amazonaws.com/qa/";
+
+    let self = this;
+    let outreach_id = "'" + self.state.outreachId + "'";
+    let volunteer_id = "'" + self.state.volunteerId + "'";
+
+        $.get(url + "?" + "outreach_id=" + outreach_id + "&volunteer_id=" + volunteer_id, function(data, status){
+            self.setState({
+                rows: data.rows
+            });
+        });
   };
 
   handleQ18() {
-    const url = "";
+    const url = "https://mou23mohgg.execute-api.ca-central-1.amazonaws.com/qa/";
+
+    let self = this;
+    let loc = "'" + self.state.location + "'";
+    let city = "'" + self.state.city + "'";
+
+        $.get(url + "?" + "warehouse_location=" + loc + "&warehouse_city=" + city, function(data, status){
+            self.setState({
+                rows: data.rows
+            });
+        });
   };
 
   handleQ19() {
-    const url = "";
+    const url = "https://d1sue73n0k.execute-api.ca-central-1.amazonaws.com/qa/";
+
+    let self = this;
+    let id = "'" + self.state.distributorId + "'";
+
+        $.get(url + "?" + "id=" + id, function(data, status){
+            self.setState({
+                rows: data.rows
+            });
+        });
   };
-  
+
   render() {
     return (
       <div>
@@ -698,6 +807,22 @@ class Admin extends Component {
                             onChange={this.handleCityChange.bind(this)}
                           />
                         </div>
+                        <div className="mt3">
+                          <input
+                            className="pa2 input-reset ba bg-transparent"
+                            type="text"
+                            placeholder="Volunteer name"
+                            onChange={this.handleNameChange.bind(this)}
+                          />
+                        </div>
+                        <div className="mt3">
+                          <input
+                            className="pa2 input-reset ba bg-transparent"
+                            type="email"
+                            placeholder="email"
+                            onChange={this.handleEmailChange.bind(this)}
+                          />
+                        </div>
                       </fieldset>
                       <div className="mt3">
                         <input
@@ -878,7 +1003,7 @@ class Admin extends Component {
                           <input
                             className="pa2 input-reset ba bg-transparent"
                             type="text"
-                            placeholder="Offfice City"
+                            placeholder="Office City"
                             onChange={this.handleOfficeCityChange.bind(this)}
                           />
                         </div>
