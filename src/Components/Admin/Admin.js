@@ -603,7 +603,7 @@ class Admin extends Component {
                         <div className="mt3">
                           <input
                             className="pa2 input-reset ba bg-transparent"
-                            type="number"
+                            type="text"
                             placeholder="volunteer ID"
                             onChange={this.handleVolunteerIdChange.bind(this)}
                           />
