@@ -116,44 +116,173 @@ class Admin extends Component {
     );
   }
 
-  handleQ2() {}
+  handleQ2() {
+    const url = "https://85djup4mk6.execute-api.ca-central-1.amazonaws.com/qa/";
 
-  handleQ3() {}
+    let self = this;
+        let loc = "'" + self.state.location + "'";
+        let city = "'" + self.state.city + "'";;
 
-  handleQ4() {}
+        $.get(url + "?" + "warehouse_location=" + loc + "&warehouse_city=" + city , function(data, status){
+            self.setState({
+                rows: data.rows
+            });
+        });
+  };
 
-  handleQ5() {}
+  
+  handleQ3() {
+    const url = "https://jydd6l3csg.execute-api.ca-central-1.amazonaws.com/qa/";
 
-  handleQ6() {}
+    let self = this;
+    let id = "'" + self.state.distributorId + "'";
+    $.get(url + "?" + "id=" + id , function(data, status){
+      self.setState({
+          rows: data.rows
+      });
+  });
+  };
 
-  handleQ7() {}
+  
+  handleQ4() {
+    const url = "https://fnfvxu0qnb.execute-api.ca-central-1.amazonaws.com/qa/";
 
-  handleQ8() {}
+    let self =this;
+    let loc = "'" + self.state.officeLocation + "'";
+        let city = "'" + self.state.officeCity + "'";
+        
+        $.get(url + "?" + "office_location=" + loc + "&office_city=" + city, function(data, status){
+            self.setState({
+                rows: data.rows
+            });
+        });
+  };
 
-  handleQ9() {}
+  
+  handleQ5() {
+    const url = "https://ntkimy6t50.execute-api.ca-central-1.amazonaws.com/qa/";
 
-  handleQ10() {}
+    let self =this;
+    let loc = "'" + self.state.officeLocation + "'";
+        let city = "'" + self.state.officeCity + "'";
+        
+        $.get(url + "?" + "office_location=" + loc + "&office_city=" + city, function(data, status){
+            self.setState({
+                rows: data.rows
+            });
+        });
+  };
 
-  handleQ105() {}
+  
+  handleQ6() {
+    const url = "https://cuou3t9qoi.execute-api.ca-central-1.amazonaws.com/qa/";
 
-  handleQ11() {}
+    let self = this;
+    let id = "'" + self.state.transactionId + "'";
+    let loc = "'" + self.state.officeLocation + "'";
+    let city = "'" + self.state.officeCity + "'";
 
-  handleQ12() {}
+    $.get(url + "?" + "id=" + id + "&office_city=" + city + "&office_location=" + loc, function(data, status){
+        self.setState({
+            rows: data.rows
+        });
+    });
+  };
 
-  handleQ13() {}
+  
+  handleQ7() {
+    const url = "https://enaxvtwxta.execute-api.ca-central-1.amazonaws.com/qa/";
 
-  handleQ14() {}
+    let self = this;
+    let id = "'" + self.state.transactionId + "'";
+    let date = "'" + self.state.transactionDate + "'";
+    let time = "'" + self.state.transactionTime + "'";
 
-  handleQ15() {}
+    $.get(url + "?" + "id=" + id + "&date=" + date + "&time=" + time, function(data, status){
+        self.setState({
+            rows: data.rows
+        });
+    });
+  };
 
-  handleQ16() {}
+  
+  handleQ8() {
+    const url = "https://0xk6iacc1e.execute-api.ca-central-1.amazonaws.com/qa/";
 
-  handleQ17() {}
+    let self = this;
+    let id = "'" + self.state.transactionId + "'";
 
-  handleQ18() {}
+        $.get(url + "?" + "id=" + id , function(data, status){
+            self.setState({
+                rows: data.rows
+            });
+        });
+  };
 
-  handleQ19() {}
+  
+  handleQ9() {
+    const url = "https://c5svbrzs98.execute-api.ca-central-1.amazonaws.com/qa/";
+    let self =this;
+    let from = self.state.tableName;
+        
+        $.get(url + "?" + "table=" + from, function(data, status){
+            self.setState({
+                rows: data.rows
+            });
+        });
+  };
 
+  
+  handleQ10() {
+    const url = "";
+  };
+
+  
+  handleQ105() {
+    const url = "";
+  };
+
+  
+  handleQ11() {
+    const url = "";
+  };
+
+  
+  handleQ12() {
+    const url = "";
+  };
+
+  
+  handleQ13() {
+    const url = "";
+  };
+
+  
+  handleQ14() {
+    const url = "";
+  };
+
+  
+  handleQ15() {
+    const url = "";
+  };
+
+  handleQ16() {
+    const url = "";
+  };
+
+  handleQ17() {
+    const url = "";
+  };
+
+  handleQ18() {
+    const url = "";
+  };
+
+  handleQ19() {
+    const url = "";
+  };
+  
   render() {
     return (
       <div>
