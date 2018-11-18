@@ -1,20 +1,29 @@
 import React, { Component } from "react";
 import "./Recipient.css";
 import "../Admin/Admin.css";
+import $ from "jquery";
+// // Import React Table
+// import ReactTable from "react-table";
+// import "react-table/react-table.css";
+
+// // import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+
+const JsonTable = require("ts-react-json-table");
 
 class Recipient extends Component {
   constructor() {
     super();
     this.state = {
-      RecipientId: 0,
+      recipientId: 0,
       warehouseLocation: "",
       warehouseCity: "",
-      rows: []
+      rows: [],
+      cols: []
     };
   }
 
   handleRecipientIdChange(event) {
-    this.setState({ RecipientId: event.target.value });
+    this.setState({ recipientId: event.target.value });
   }
 
   handleWarehouseLocationChange(event) {
@@ -25,9 +34,42 @@ class Recipient extends Component {
     this.setState({ warehouseCity: event.target.value });
   }
 
-  handleQ1() {}
+//   getCols() {
 
-  handleQ2() {}
+//   }
+
+  handleQ1() {
+    const url = "https://jx7hv5lg7d.execute-api.ca-central-1.amazonaws.com/qa/";
+    let self = this;
+    let id = "'" + self.state.recipientId + "'";
+
+    $.get(url + "?" + "id=" + id, function(data, status) {
+      console.log(data.rows);
+      self.setState({
+        rows: data.rows
+      });
+    });
+
+    self.getCols();
+  }
+
+  handleQ2() {
+    const url = "https://oyt2ffwabh.execute-api.ca-central-1.amazonaws.com/qa/";
+
+    let self = this;
+    let loc = "'" + self.state.warehouseLocation + "'";
+    let city = "'" + self.state.warehouseCity + "'";
+
+    $.get(
+      url + "?" + "warehouse_location=" + loc + "&warehouse_city=" + city,
+      function(data, status) {
+        console.log(data.rows);
+        self.setState({
+          rows: data.rows
+        });
+      }
+    );
+  }
 
   render() {
     return (
@@ -36,6 +78,9 @@ class Recipient extends Component {
           <h1 class="f3 f2-m f1-l fw4 black-90 mv3">Recipient</h1>
           <hr />
         </header>
+        {/* <ReactTable data={this.state.rows} columns={this.state.cols} /> */}
+
+        <JsonTable rows={this.state.rows} />
         <table className="f6 w-100 mw8 center" cellSpacing="0">
           <thead>
             <tr className="stripe-dark">
@@ -65,7 +110,7 @@ class Recipient extends Component {
                   <div className="mt3">
                     <input
                       className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                      type="submit"
+                      type="button"
                       value="Submit"
                       onClick={this.handleQ1.bind(this)}
                     />
@@ -100,7 +145,7 @@ class Recipient extends Component {
                   <div className="mt3">
                     <input
                       className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                      type="submit"
+                      type="button"
                       value="Submit"
                       onClick={this.handleQ2.bind(this)}
                     />
