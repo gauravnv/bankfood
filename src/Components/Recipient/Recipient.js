@@ -12,7 +12,8 @@ class Recipient extends Component {
       warehouseLocation: "",
       warehouseCity: "",
       rows: [],
-      cols: []
+      cols: [],
+      showTable: false
     };
   }
 
@@ -41,13 +42,18 @@ class Recipient extends Component {
             accessor: key
           };
         });
+
+        self.setState({
+          rows: data.rows,
+          cols: columns,
+          showTable: true
+        });
       } else {
         alert("No results found");
+        self.setState({
+          showTable: false
+        });
       }
-      self.setState({
-        rows: data.rows,
-        cols: columns
-      });
     });
   }
 
@@ -68,18 +74,53 @@ class Recipient extends Component {
               accessor: key
             };
           });
+
+          self.setState({
+            rows: data.rows,
+            cols: columns,
+            showTable: true
+          });
         } else {
           alert("No results found");
+          self.setState({
+            showTable: false
+          });
         }
-        self.setState({
-          rows: data.rows,
-          cols: columns
-        });
       }
     );
   }
 
+  closeModal() {
+    this.setState({
+      showTable: false
+    });
+  }
+
   render() {
+    if (this.state.showTable) {
+      return (
+        <div>
+          <div className="pa4 overflow-auto">
+            <div className="contain">
+              <p
+                onClick={this.closeModal.bind(this)}
+                className="float-right span"
+              >
+                &#10005;
+              </p>
+            </div>
+            <ReactTable
+              data={this.state.rows}
+              columns={this.state.cols}
+              defaultPageSize={10}
+              filterable={true}
+              className="-striped -highlight"
+            />
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div>
         <header className="tc ph4">
@@ -172,8 +213,6 @@ class Recipient extends Component {
                 </tr>
               </tbody>
             </table>
-
-            <ReactTable data={this.state.rows} columns={this.state.cols} defaultPageSize={10} filterable={true} className="-striped -highlight"/>
           </div>
         </div>
       </div>
