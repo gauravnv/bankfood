@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Foodbank.css';
 import Banner from '../Banner/Banner';
 import Portalnav from '../Portalnav/Portalnav';
 
