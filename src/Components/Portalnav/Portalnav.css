@@ -102,22 +102,6 @@
     background-color: #555;
 }
 
-.bg-purple {
-    background-color: #5e2ca5;
-}
-
-.bg-light-purple {
-    background-color: #a463f2;
-}
-
-.bg-dark-pink {
-    background-color: #d5008f;
-}
-
-.bg-hot-pink {
-    background-color: #ff41b4;
-}
-
 .bg-dark-green {
     background-color: #137752;
 }
@@ -172,9 +156,9 @@
 }
 
 .grow:hover, .grow:focus {
-    transform: scale(1.05);
+    transform: scale(2.05);
 }
 
 .grow:active {
-    transform: scale(.9);
+    transform: scale(1.5);
 }
