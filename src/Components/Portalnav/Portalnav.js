@@ -13,21 +13,21 @@ class Portalnav extends Component {
           <div className="dt-ns dt--fixed-ns">
             <div className="dtc-ns tc pv4 bg-black-05">
               <Link to="/admin">
-                <div className="grow font-big no-underline ph3 pv2 mb2 dib mid-gray">
-                  Office Admin
+                <div className="grow font-big no-underline ph3 pv2 mb2 dib white">
+                  Admin
                 </div>
               </Link>
             </div>
             <div className="dtc-ns tc pv4 bg-black-05">
               <Link to="/distributor">
-                <div className="grow font-big no-underline ph3 pv2 mb2 dib mid-gray">
+                <div className="grow font-big no-underline ph3 pv2 mb2 dib white">
                   Distributor
                 </div>
               </Link>
             </div>
             <div className="dtc-ns tc pv4 bg-black-05">
               <Link to="/recipient">
-                <div className="grow font-big no-underline ph3 pv2 mb2 dib mid-gray">
+                <div className="grow font-big no-underline ph3 pv2 mb2 dib white">
                   Recipient
                 </div>
               </Link>

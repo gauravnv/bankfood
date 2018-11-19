@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import "./Recipient.css";
 import "../Admin/Admin.css";
 import $ from "jquery";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
+
 class Recipient extends Component {
   constructor() {
     super();
@@ -12,7 +12,8 @@ class Recipient extends Component {
       warehouseLocation: "",
       warehouseCity: "",
       rows: [],
-      cols: []
+      cols: [],
+      showTable: false
     };
   }
 
@@ -46,7 +47,8 @@ class Recipient extends Component {
       }
       self.setState({
         rows: data.rows,
-        cols: columns
+        cols: columns,
+        showTable: true
       });
     });
   }
@@ -73,20 +75,44 @@ class Recipient extends Component {
         }
         self.setState({
           rows: data.rows,
-          cols: columns
+          cols: columns,
+          showTable: true
         });
       }
     );
   }
 
+  closeModal() {
+    this.setState({
+      showTable: false
+    });
+  }
+
   render() {
+    if (this.state.showTable) {
+      return (
+        <div>
+          <div className="contain">
+            <p onClick={this.closeModal.bind(this)} className="float-right">&#10005;</p>
+          </div>
+          <ReactTable 
+            data={this.state.rows} 
+            columns={this.state.cols} 
+            defaultPageSize={10} 
+            filterable={true} 
+            className="-striped -highlight"
+          />
+        </div>
+      );
+    }
+
     return (
       <div>
-        <header className="tc ph4">
+        <header className="tc">
           <h1 className="f3 f2-m f1-l fw4 black-90 mv3">Recipient</h1>
           <hr />
         </header>
-        <div className="pa4">
+        <div>
           <div className="overflow-auto">
             <table className="f6 w-100 mw8 center" cellSpacing="0">
               <thead>
@@ -172,8 +198,6 @@ class Recipient extends Component {
                 </tr>
               </tbody>
             </table>
-
-            <ReactTable data={this.state.rows} columns={this.state.cols} defaultPageSize={10} filterable={true} className="-striped -highlight"/>
           </div>
         </div>
       </div>
