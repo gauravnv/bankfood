@@ -26,7 +26,8 @@ class Distributor extends Component {
       warehouseCity: "",
       expiryDate: null,
       rows: [],
-      cols: []
+      cols: [],
+      showTable: false
     };
   }
 
@@ -107,17 +108,18 @@ class Distributor extends Component {
               accessor: key
             };
           });
-        } else {
-          columns = {
-            Header: "None Found",
-            accessor: "No Result"
-          };
-        }
 
-        self.setState({
-          rows: data.rows,
-          cols: columns
-        });
+          self.setState({
+            rows: data.rows,
+            cols: columns,
+            showTable: true
+          });
+        } else {
+          alert("No results found");
+          self.setState({
+            showTable: false
+          });
+        }
       }
     );
   }
@@ -136,13 +138,18 @@ class Distributor extends Component {
             accessor: key
           };
         });
+
+        self.setState({
+          rows: data.rows,
+          cols: columns,
+          showTable: true
+        });
       } else {
         alert("No results found");
+        self.setState({
+          showTable: false
+        });
       }
-      self.setState({
-        rows: data.rows,
-        cols: columns
-      });
     });
   }
 
@@ -157,13 +164,18 @@ class Distributor extends Component {
             accessor: key
           };
         });
+
+        self.setState({
+          rows: data.rows,
+          cols: columns,
+          showTable: true
+        });
       } else {
         alert("No results found");
+        self.setState({
+          showTable: false
+        });
       }
-      self.setState({
-        rows: data.rows,
-        cols: columns
-      });
     });
   }
 
@@ -191,13 +203,18 @@ class Distributor extends Component {
               accessor: key
             };
           });
+
+          self.setState({
+            rows: data.rows,
+            cols: columns,
+            showTable: true
+          });
         } else {
           alert("No results found");
+          self.setState({
+            showTable: false
+          });
         }
-        self.setState({
-          rows: data.rows,
-          cols: columns
-        });
       }
     );
   }
@@ -220,13 +237,18 @@ class Distributor extends Component {
             accessor: key
           };
         });
+
+        self.setState({
+          rows: data.rows,
+          cols: columns,
+          showTable: true
+        });
       } else {
         alert("No results found");
+        self.setState({
+          showTable: false
+        });
       }
-      self.setState({
-        rows: data.rows,
-        cols: columns
-      });
     });
   }
 
@@ -263,13 +285,18 @@ class Distributor extends Component {
               accessor: key
             };
           });
+
+          self.setState({
+            rows: data.rows,
+            cols: columns,
+            showTable: true
+          });
         } else {
           alert("No results found");
+          self.setState({
+            showTable: false
+          });
         }
-        self.setState({
-          rows: data.rows,
-          cols: columns
-        });
       }
     );
   }
@@ -287,13 +314,18 @@ class Distributor extends Component {
             accessor: key
           };
         });
+
+        self.setState({
+          rows: data.rows,
+          cols: columns,
+          showTable: true
+        });
       } else {
         alert("No results found");
+        self.setState({
+          showTable: false
+        });
       }
-      self.setState({
-        rows: data.rows,
-        cols: columns
-      });
     });
   }
 
@@ -336,18 +368,57 @@ class Distributor extends Component {
               accessor: key
             };
           });
+
+          self.setState({
+            rows: data.rows,
+            cols: columns,
+            showTable: true
+          });
         } else {
           alert("No results found");
+          self.setState({
+            showTable: false
+          });
         }
-        self.setState({
-          rows: data.rows,
-          cols: columns
-        });
       }
     );
   }
 
+  closeModal() {
+    this.setState({
+      showTable: false
+    });
+  }
+
   render() {
+    if (this.state.showTable) {
+      return (
+        <div>
+          <header className="tc ph4">
+            <h1 className="f3 f2-m f1-l fw4 black-90 mv3">Output Table</h1>
+            <hr />
+          </header>
+          <div className="pa4 overflow-auto">
+            <div className="contain">
+              <p
+                onClick={this.closeModal.bind(this)}
+                className="float-right span"
+              >
+                &#10005;
+              </p>
+            </div>
+            <ReactTable
+              data={this.state.rows}
+              columns={this.state.cols}
+              defaultPageSize={10}
+              filterable={true}
+              className="-striped -highlight"
+            />
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div>
         <header className="tc ph4">
@@ -760,8 +831,6 @@ class Distributor extends Component {
                 </tr>
               </tbody>
             </table>
-
-            <ReactTable data={this.state.rows} columns={this.state.cols} defaultPageSize={10} filterable={true} className="-striped -highlight"/>
           </div>
         </div>
       </div>

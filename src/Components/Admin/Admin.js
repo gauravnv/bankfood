@@ -27,7 +27,8 @@ class Admin extends Component {
       toTransactionTime: null,
       outreachId: 0,
       rows: [],
-      cols: []
+      cols: [],
+      showTable: false
     };
   }
 
@@ -118,13 +119,18 @@ class Admin extends Component {
               accessor: key
             };
           });
+
+          self.setState({
+            rows: data.rows,
+            cols: columns,
+            showTable: true
+          });
         } else {
           alert("No results found");
+          self.setState({
+            showTable: false
+          });
         }
-        self.setState({
-          rows: data.rows,
-          cols: columns
-        });
       }
     );
   }
@@ -146,13 +152,18 @@ class Admin extends Component {
               accessor: key
             };
           });
+
+          self.setState({
+            rows: data.rows,
+            cols: columns,
+            showTable: true
+          });
         } else {
           alert("No results found");
+          self.setState({
+            showTable: false
+          });
         }
-        self.setState({
-          rows: data.rows,
-          cols: columns
-        });
       }
     );
   }
@@ -170,13 +181,18 @@ class Admin extends Component {
             accessor: key
           };
         });
+
+        self.setState({
+          rows: data.rows,
+          cols: columns,
+          showTable: true
+        });
       } else {
         alert("No results found");
+        self.setState({
+          showTable: false
+        });
       }
-      self.setState({
-        rows: data.rows,
-        cols: columns
-      });
     });
   }
 
@@ -197,13 +213,18 @@ class Admin extends Component {
               accessor: key
             };
           });
+
+          self.setState({
+            rows: data.rows,
+            cols: columns,
+            showTable: true
+          });
         } else {
           alert("No results found");
+          self.setState({
+            showTable: false
+          });
         }
-        self.setState({
-          rows: data.rows,
-          cols: columns
-        });
       }
     );
   }
@@ -225,13 +246,18 @@ class Admin extends Component {
               accessor: key
             };
           });
+
+          self.setState({
+            rows: data.rows,
+            cols: columns,
+            showTable: true
+          });
         } else {
           alert("No results found");
+          self.setState({
+            showTable: false
+          });
         }
-        self.setState({
-          rows: data.rows,
-          cols: columns
-        });
       }
     );
   }
@@ -261,13 +287,18 @@ class Admin extends Component {
               accessor: key
             };
           });
+
+          self.setState({
+            rows: data.rows,
+            cols: columns,
+            showTable: true
+          });
         } else {
           alert("No results found");
+          self.setState({
+            showTable: false
+          });
         }
-        self.setState({
-          rows: data.rows,
-          cols: columns
-        });
       }
     );
   }
@@ -291,13 +322,18 @@ class Admin extends Component {
             accessor: key
           };
         });
+
+        self.setState({
+          rows: data.rows,
+          cols: columns,
+          showTable: true
+        });
       } else {
         alert("No results found");
+        self.setState({
+          showTable: false
+        });
       }
-      self.setState({
-        rows: data.rows,
-        cols: columns
-      });
     });
   }
 
@@ -315,13 +351,18 @@ class Admin extends Component {
             accessor: key
           };
         });
+
+        self.setState({
+          rows: data.rows,
+          cols: columns,
+          showTable: true
+        });
       } else {
         alert("No results found");
+        self.setState({
+          showTable: false
+        });
       }
-      self.setState({
-        rows: data.rows,
-        cols: columns
-      });
     });
   }
 
@@ -338,13 +379,18 @@ class Admin extends Component {
             accessor: key
           };
         });
+
+        self.setState({
+          rows: data.rows,
+          cols: columns,
+          showTable: true
+        });
       } else {
         alert("No results found");
+        self.setState({
+          showTable: false
+        });
       }
-      self.setState({
-        rows: data.rows,
-        cols: columns
-      });
     });
   }
 
@@ -355,7 +401,7 @@ class Admin extends Component {
     let volunteer_id = "'" + self.state.volunteerId + "'";
     let name = "'" + self.state.name + "'";
     let email = "'" + self.state.email + "'";
-    let table =  "" + self.state.tableName + "";
+    let table = "" + self.state.tableName + "";
     let city = "'" + self.state.city + "'";
     let locn = "'" + self.state.location + "'";
 
@@ -382,13 +428,18 @@ class Admin extends Component {
               accessor: key
             };
           });
+
+          self.setState({
+            rows: data.rows,
+            cols: columns,
+            showTable: true
+          });
         } else {
           alert("No results found");
+          self.setState({
+            showTable: false
+          });
         }
-        self.setState({
-          rows: data.rows,
-          cols: columns
-        });
       }
     );
   }
@@ -417,13 +468,18 @@ class Admin extends Component {
               accessor: key
             };
           });
+
+          self.setState({
+            rows: data.rows,
+            cols: columns,
+            showTable: true
+          });
         } else {
           alert("No results found");
+          self.setState({
+            showTable: false
+          });
         }
-        self.setState({
-          rows: data.rows,
-          cols: columns
-        });
       }
     );
   }
@@ -445,13 +501,18 @@ class Admin extends Component {
               accessor: key
             };
           });
+
+          self.setState({
+            rows: data.rows,
+            cols: columns,
+            showTable: true
+          });
         } else {
           alert("No results found");
+          self.setState({
+            showTable: false
+          });
         }
-        self.setState({
-          rows: data.rows,
-          cols: columns
-        });
       }
     );
   }
@@ -470,13 +531,18 @@ class Admin extends Component {
             accessor: key
           };
         });
+
+        self.setState({
+          rows: data.rows,
+          cols: columns,
+          showTable: true
+        });
       } else {
         alert("No results found");
+        self.setState({
+          showTable: false
+        });
       }
-      self.setState({
-        rows: data.rows,
-        cols: columns
-      });
     });
   }
 
@@ -493,13 +559,18 @@ class Admin extends Component {
             accessor: key
           };
         });
+
+        self.setState({
+          rows: data.rows,
+          cols: columns,
+          showTable: true
+        });
       } else {
         alert("No results found");
+        self.setState({
+          showTable: false
+        });
       }
-      self.setState({
-        rows: data.rows,
-        cols: columns
-      });
     });
   }
 
@@ -531,13 +602,18 @@ class Admin extends Component {
               accessor: key
             };
           });
+
+          self.setState({
+            rows: data.rows,
+            cols: columns,
+            showTable: true
+          });
         } else {
           alert("No results found");
+          self.setState({
+            showTable: false
+          });
         }
-        self.setState({
-          rows: data.rows,
-          cols: columns
-        });
       }
     );
   }
@@ -554,13 +630,18 @@ class Admin extends Component {
             accessor: key
           };
         });
+
+        self.setState({
+          rows: data.rows,
+          cols: columns,
+          showTable: true
+        });
       } else {
         alert("No results found");
+        self.setState({
+          showTable: false
+        });
       }
-      self.setState({
-        rows: data.rows,
-        cols: columns
-      });
     });
   }
 
@@ -579,13 +660,18 @@ class Admin extends Component {
             accessor: key
           };
         });
+
+        self.setState({
+          rows: data.rows,
+          cols: columns,
+          showTable: true
+        });
       } else {
         alert("No results found");
+        self.setState({
+          showTable: false
+        });
       }
-      self.setState({
-        rows: data.rows,
-        cols: columns
-      });
     });
   }
 
@@ -611,13 +697,18 @@ class Admin extends Component {
               accessor: key
             };
           });
+
+          self.setState({
+            rows: data.rows,
+            cols: columns,
+            showTable: true
+          });
         } else {
           alert("No results found");
+          self.setState({
+            showTable: false
+          });
         }
-        self.setState({
-          rows: data.rows,
-          cols: columns
-        });
       }
     );
   }
@@ -639,13 +730,18 @@ class Admin extends Component {
               accessor: key
             };
           });
+
+          self.setState({
+            rows: data.rows,
+            cols: columns,
+            showTable: true
+          });
         } else {
           alert("No results found");
+          self.setState({
+            showTable: false
+          });
         }
-        self.setState({
-          rows: data.rows,
-          cols: columns
-        });
       }
     );
   }
@@ -664,17 +760,56 @@ class Admin extends Component {
             accessor: key
           };
         });
+
+        self.setState({
+          rows: data.rows,
+          cols: columns,
+          showTable: true
+        });
       } else {
         alert("No results found");
+        self.setState({
+          showTable: false
+        });
       }
-      self.setState({
-        rows: data.rows,
-        cols: columns
-      });
+    });
+  }
+
+  closeModal() {
+    this.setState({
+      showTable: false
     });
   }
 
   render() {
+    if (this.state.showTable) {
+      return (
+        <div>
+          <header className="tc ph4">
+            <h1 className="f3 f2-m f1-l fw4 black-90 mv3">Output Table</h1>
+            <hr />
+          </header>
+          <div className="pa4 overflow-auto">
+            <div className="contain">
+              <p
+                onClick={this.closeModal.bind(this)}
+                className="float-right span"
+              >
+                &#10005;
+              </p>
+            </div>
+            <ReactTable
+              data={this.state.rows}
+              columns={this.state.cols}
+              defaultPageSize={10}
+              filterable={true}
+              className="-striped -highlight"
+            />
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div>
         <header className="tc ph4">
@@ -1501,8 +1636,6 @@ class Admin extends Component {
                 </tr>
               </tbody>
             </table>
-
-            <ReactTable data={this.state.rows} columns={this.state.cols} defaultPageSize={10} filterable={true}  className="-striped -highlight"/>
           </div>
         </div>
       </div>
