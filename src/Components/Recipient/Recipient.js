@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./Recipient.css";
 import "../Admin/Admin.css";
 import $ from "jquery";
 import ReactTable from "react-table";
