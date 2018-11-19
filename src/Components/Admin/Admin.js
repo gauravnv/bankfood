@@ -352,10 +352,10 @@ class Admin extends Component {
     const url = "https://avhky3sfwb.execute-api.ca-central-1.amazonaws.com/qa/";
 
     let self = this;
-    let subvolunteer_id = "'" + self.state.volunteerId + "'";
+    let volunteer_id = "'" + self.state.volunteerId + "'";
     let name = "'" + self.state.name + "'";
     let email = "'" + self.state.email + "'";
-    let table = "'" + self.state.tableName + "'";
+    let table =  "" + self.state.tableName + "";
     let city = "'" + self.state.city + "'";
     let locn = "'" + self.state.location + "'";
 
@@ -364,7 +364,7 @@ class Admin extends Component {
         "?" +
         "table=" +
         table +
-        "&location=" +
+        "&locn=" +
         locn +
         "&city=" +
         city +
@@ -372,10 +372,8 @@ class Admin extends Component {
         email +
         "&vname=" +
         name +
-        "&subvolunteer_id=" +
-        subvolunteer_id +
         "&volunteer_id=" +
-        subvolunteer_id,
+        volunteer_id,
       function(data, status) {
         if (data.rows.length > 0) {
           var columns = Object.keys(data.rows[0]).map((key, id) => {
