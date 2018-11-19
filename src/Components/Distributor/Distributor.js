@@ -394,6 +394,10 @@ class Distributor extends Component {
     if (this.state.showTable) {
       return (
         <div>
+          <header className="tc ph4">
+            <h1 className="f3 f2-m f1-l fw4 black-90 mv3">Output Table</h1>
+            <hr />
+          </header>
           <div className="pa4 overflow-auto">
             <div className="contain">
               <p
