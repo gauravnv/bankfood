@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import $ from "jquery";
 import "react-table/react-table.css";
 import "./Admin.css";
+import ReactTable from "react-table";
+import "react-table/react-table.css";
 
-const JsonTable = require("ts-react-json-table");
+// const JsonTable = require("ts-react-json-table");
 
 class Admin extends Component {
   constructor() {
@@ -25,7 +27,7 @@ class Admin extends Component {
       toTransactionTime: null,
       outreachId: 0,
       rows: [],
-      isPortalOpen: false
+      cols: []
     };
   }
 
@@ -109,8 +111,19 @@ class Admin extends Component {
         "&warehouse_city=" +
         city,
       function(data, status) {
+        if (data.rows.length > 0) {
+          var columns = Object.keys(data.rows[0]).map((key, id) => {
+            return {
+              Header: key,
+              accessor: key
+            };
+          });
+        } else {
+          alert("No results found");
+        }
         self.setState({
-          rows: data.rows
+          rows: data.rows,
+          cols: columns
         });
       }
     );
@@ -120,60 +133,109 @@ class Admin extends Component {
     const url = "https://85djup4mk6.execute-api.ca-central-1.amazonaws.com/qa/";
 
     let self = this;
-        let loc = "'" + self.state.location + "'";
-        let city = "'" + self.state.city + "'";;
+    let loc = "'" + self.state.location + "'";
+    let city = "'" + self.state.city + "'";
 
-        $.get(url + "?" + "warehouse_location=" + loc + "&warehouse_city=" + city , function(data, status){
-            self.setState({
-                rows: data.rows
-            });
+    $.get(
+      url + "?" + "warehouse_location=" + loc + "&warehouse_city=" + city,
+      function(data, status) {
+        if (data.rows.length > 0) {
+          var columns = Object.keys(data.rows[0]).map((key, id) => {
+            return {
+              Header: key,
+              accessor: key
+            };
+          });
+        } else {
+          alert("No results found");
+        }
+        self.setState({
+          rows: data.rows,
+          cols: columns
         });
-  };
+      }
+    );
+  }
 
-  
   handleQ3() {
     const url = "https://jydd6l3csg.execute-api.ca-central-1.amazonaws.com/qa/";
 
     let self = this;
     let id = "'" + self.state.distributorId + "'";
-    $.get(url + "?" + "id=" + id , function(data, status){
+    $.get(url + "?" + "id=" + id, function(data, status) {
+      if (data.rows.length > 0) {
+        var columns = Object.keys(data.rows[0]).map((key, id) => {
+          return {
+            Header: key,
+            accessor: key
+          };
+        });
+      } else {
+        alert("No results found");
+      }
       self.setState({
-          rows: data.rows
+        rows: data.rows,
+        cols: columns
       });
-  });
-  };
+    });
+  }
 
-  
   handleQ4() {
     const url = "https://fnfvxu0qnb.execute-api.ca-central-1.amazonaws.com/qa/";
 
-    let self =this;
+    let self = this;
     let loc = "'" + self.state.officeLocation + "'";
-        let city = "'" + self.state.officeCity + "'";
-        
-        $.get(url + "?" + "office_location=" + loc + "&office_city=" + city, function(data, status){
-            self.setState({
-                rows: data.rows
-            });
-        });
-  };
+    let city = "'" + self.state.officeCity + "'";
 
-  
+    $.get(
+      url + "?" + "office_location=" + loc + "&office_city=" + city,
+      function(data, status) {
+        if (data.rows.length > 0) {
+          var columns = Object.keys(data.rows[0]).map((key, id) => {
+            return {
+              Header: key,
+              accessor: key
+            };
+          });
+        } else {
+          alert("No results found");
+        }
+        self.setState({
+          rows: data.rows,
+          cols: columns
+        });
+      }
+    );
+  }
+
   handleQ5() {
     const url = "https://ntkimy6t50.execute-api.ca-central-1.amazonaws.com/qa/";
 
-    let self =this;
+    let self = this;
     let loc = "'" + self.state.officeLocation + "'";
-        let city = "'" + self.state.officeCity + "'";
-        
-        $.get(url + "?" + "office_location=" + loc + "&office_city=" + city, function(data, status){
-            self.setState({
-                rows: data.rows
-            });
-        });
-  };
+    let city = "'" + self.state.officeCity + "'";
 
-  
+    $.get(
+      url + "?" + "office_location=" + loc + "&office_city=" + city,
+      function(data, status) {
+        if (data.rows.length > 0) {
+          var columns = Object.keys(data.rows[0]).map((key, id) => {
+            return {
+              Header: key,
+              accessor: key
+            };
+          });
+        } else {
+          alert("No results found");
+        }
+        self.setState({
+          rows: data.rows,
+          cols: columns
+        });
+      }
+    );
+  }
+
   handleQ6() {
     const url = "https://cuou3t9qoi.execute-api.ca-central-1.amazonaws.com/qa/";
 
@@ -182,14 +244,34 @@ class Admin extends Component {
     let loc = "'" + self.state.officeLocation + "'";
     let city = "'" + self.state.officeCity + "'";
 
-    $.get(url + "?" + "id=" + id + "&office_city=" + city + "&office_location=" + loc, function(data, status){
+    $.get(
+      url +
+        "?" +
+        "id=" +
+        id +
+        "&office_city=" +
+        city +
+        "&office_location=" +
+        loc,
+      function(data, status) {
+        if (data.rows.length > 0) {
+          var columns = Object.keys(data.rows[0]).map((key, id) => {
+            return {
+              Header: key,
+              accessor: key
+            };
+          });
+        } else {
+          alert("No results found");
+        }
         self.setState({
-            rows: data.rows
+          rows: data.rows,
+          cols: columns
         });
-    });
-  };
+      }
+    );
+  }
 
-  
   handleQ7() {
     const url = "https://enaxvtwxta.execute-api.ca-central-1.amazonaws.com/qa/";
 
@@ -198,117 +280,231 @@ class Admin extends Component {
     let date = "'" + self.state.transactionDate + "'";
     let time = "'" + self.state.transactionTime + "'";
 
-    $.get(url + "?" + "id=" + id + "&date=" + date + "&time=" + time, function(data, status){
-        self.setState({
-            rows: data.rows
+    $.get(url + "?" + "id=" + id + "&date=" + date + "&time=" + time, function(
+      data,
+      status
+    ) {
+      if (data.rows.length > 0) {
+        var columns = Object.keys(data.rows[0]).map((key, id) => {
+          return {
+            Header: key,
+            accessor: key
+          };
         });
+      } else {
+        alert("No results found");
+      }
+      self.setState({
+        rows: data.rows,
+        cols: columns
+      });
     });
-  };
+  }
 
-  
   handleQ8() {
     const url = "https://0xk6iacc1e.execute-api.ca-central-1.amazonaws.com/qa/";
 
     let self = this;
     let id = "'" + self.state.transactionId + "'";
 
-        $.get(url + "?" + "id=" + id , function(data, status){
-            self.setState({
-                rows: data.rows
-            });
+    $.get(url + "?" + "id=" + id, function(data, status) {
+      if (data.rows.length > 0) {
+        var columns = Object.keys(data.rows[0]).map((key, id) => {
+          return {
+            Header: key,
+            accessor: key
+          };
         });
-  };
+      } else {
+        alert("No results found");
+      }
+      self.setState({
+        rows: data.rows,
+        cols: columns
+      });
+    });
+  }
 
-  
   handleQ9() {
     const url = "https://c5svbrzs98.execute-api.ca-central-1.amazonaws.com/qa/";
-    let self =this;
+    let self = this;
     let from = self.state.tableName;
-        
-        $.get(url + "?" + "table=" + from, function(data, status){
-            self.setState({
-                rows: data.rows
-            });
-        });
-  };
 
-  
+    $.get(url + "?" + "table=" + from, function(data, status) {
+      if (data.rows.length > 0) {
+        var columns = Object.keys(data.rows[0]).map((key, id) => {
+          return {
+            Header: key,
+            accessor: key
+          };
+        });
+      } else {
+        alert("No results found");
+      }
+      self.setState({
+        rows: data.rows,
+        cols: columns
+      });
+    });
+  }
+
   handleQ10() {
     const url = "https://avhky3sfwb.execute-api.ca-central-1.amazonaws.com/qa/";
 
     let self = this;
     let subvolunteer_id = "'" + self.state.volunteerId + "'";
     let name = "'" + self.state.name + "'";
-    let email =  "'" + self.state.email + "'";
+    let email = "'" + self.state.email + "'";
     let table = "'" + self.state.tableName + "'";
-        let city = "'" + self.state.city + "'";
-        let locn = "'" + self.state.location + "'";
-        
-        $.get(url + "?" + "table=" + table + "&location=" + locn + "&city=" + city + "&vemail_address=" + email + "&vname=" + name + "&subvolunteer_id=" + subvolunteer_id  + "&volunteer_id=" + subvolunteer_id, function(data, status){
-            self.setState({
-                rows: data.rows
-            });
-        });
-  };
+    let city = "'" + self.state.city + "'";
+    let locn = "'" + self.state.location + "'";
 
-  
+    $.get(
+      url +
+        "?" +
+        "table=" +
+        table +
+        "&location=" +
+        locn +
+        "&city=" +
+        city +
+        "&vemail_address=" +
+        email +
+        "&vname=" +
+        name +
+        "&subvolunteer_id=" +
+        subvolunteer_id +
+        "&volunteer_id=" +
+        subvolunteer_id,
+      function(data, status) {
+        if (data.rows.length > 0) {
+          var columns = Object.keys(data.rows[0]).map((key, id) => {
+            return {
+              Header: key,
+              accessor: key
+            };
+          });
+        } else {
+          alert("No results found");
+        }
+        self.setState({
+          rows: data.rows,
+          cols: columns
+        });
+      }
+    );
+  }
+
   handleQ105() {
     const url = "https://1ri3o5y1me.execute-api.ca-central-1.amazonaws.com/qa/";
 
     let self = this;
     let volunteer_id = "'" + self.state.volunteerId + "'";
     let name = "'" + self.state.name + "'";
-    let email =  "'" + self.state.email + "'";
-   $.get(url + "?" + "email=" + email + "&name=" + name + "&volunteer_id=" + volunteer_id, function(data, status){
-           self.setState({
-                 rows: data.rows
-            });
-      });
-  };
+    let email = "'" + self.state.email + "'";
+    $.get(
+      url +
+        "?" +
+        "email=" +
+        email +
+        "&name=" +
+        name +
+        "&volunteer_id=" +
+        volunteer_id,
+      function(data, status) {
+        if (data.rows.length > 0) {
+          var columns = Object.keys(data.rows[0]).map((key, id) => {
+            return {
+              Header: key,
+              accessor: key
+            };
+          });
+        } else {
+          alert("No results found");
+        }
+        self.setState({
+          rows: data.rows,
+          cols: columns
+        });
+      }
+    );
+  }
 
-  
   handleQ11() {
     const url = "https://jyed8mqryf.execute-api.ca-central-1.amazonaws.com/qa/";
 
-
     let self = this;
-    let loc = "'" + self.state.location+ "'";
+    let loc = "'" + self.state.location + "'";
     let city = "'" + self.state.city + "'";
 
-    $.get(url + "?" + "warehouse_location=" + loc + "&warehouse_city=" + city, function(data, status){
+    $.get(
+      url + "?" + "warehouse_location=" + loc + "&warehouse_city=" + city,
+      function(data, status) {
+        if (data.rows.length > 0) {
+          var columns = Object.keys(data.rows[0]).map((key, id) => {
+            return {
+              Header: key,
+              accessor: key
+            };
+          });
+        } else {
+          alert("No results found");
+        }
         self.setState({
-            rows: data.rows
+          rows: data.rows,
+          cols: columns
         });
-    });
-  };
+      }
+    );
+  }
 
-  
   handleQ12() {
     const url = "https://iua8jiau20.execute-api.ca-central-1.amazonaws.com/qa/";
 
     let self = this;
-    let id = "'" + self.state.volunteerId+ "'";
+    let id = "'" + self.state.volunteerId + "'";
 
-    $.get(url + "?" + "id=" + id , function(data, status){
-        self.setState({
-            rows: data.rows
+    $.get(url + "?" + "id=" + id, function(data, status) {
+      if (data.rows.length > 0) {
+        var columns = Object.keys(data.rows[0]).map((key, id) => {
+          return {
+            Header: key,
+            accessor: key
+          };
         });
+      } else {
+        alert("No results found");
+      }
+      self.setState({
+        rows: data.rows,
+        cols: columns
+      });
     });
-  };
+  }
 
-  
   handleQ13() {
-    const url = "https://fhbd8zysxk.execute-api.ca-central-1.amazonaws.com/QA/admin/outreach";
+    const url =
+      "https://fhbd8zysxk.execute-api.ca-central-1.amazonaws.com/QA/admin/outreach";
 
     let self = this;
-    $.get(url, function(data, status){
-        self.setState({
-            rows: data.rows
+    $.get(url, function(data, status) {
+      if (data.rows.length > 0) {
+        var columns = Object.keys(data.rows[0]).map((key, id) => {
+          return {
+            Header: key,
+            accessor: key
+          };
         });
+      } else {
+        alert("No results found");
+      }
+      self.setState({
+        rows: data.rows,
+        cols: columns
+      });
     });
-  };
+  }
 
-  
   handleQ14() {
     const url = "https://4mcapjbhx2.execute-api.ca-central-1.amazonaws.com/qa/";
 
@@ -318,24 +514,57 @@ class Admin extends Component {
     let date = "'" + self.state.transactionDate + "'";
     let time = "'" + self.state.transactionTime + "'";
 
-        $.get(url + "?" + "office_location=" + loc + "&office_city=" + city + "&date=" + date + "&time=" + time, function(data, status){
-            self.setState({
-                rows: data.rows
-            });
+    $.get(
+      url +
+        "?" +
+        "office_location=" +
+        loc +
+        "&office_city=" +
+        city +
+        "&date=" +
+        date +
+        "&time=" +
+        time,
+      function(data, status) {
+        if (data.rows.length > 0) {
+          var columns = Object.keys(data.rows[0]).map((key, id) => {
+            return {
+              Header: key,
+              accessor: key
+            };
+          });
+        } else {
+          alert("No results found");
+        }
+        self.setState({
+          rows: data.rows,
+          cols: columns
         });
-  };
+      }
+    );
+  }
 
-  
   handleQ15() {
     const url = "https://p3qdzl69pi.execute-api.ca-central-1.amazonaws.com/qa/";
 
     let self = this;
-    $.get(url, function(data, status){
-        self.setState({
-            rows: data.rows
+    $.get(url, function(data, status) {
+      if (data.rows.length > 0) {
+        var columns = Object.keys(data.rows[0]).map((key, id) => {
+          return {
+            Header: key,
+            accessor: key
+          };
         });
+      } else {
+        alert("No results found");
+      }
+      self.setState({
+        rows: data.rows,
+        cols: columns
+      });
     });
-  };
+  }
 
   handleQ16() {
     const url = "https://79cce3elw7.execute-api.ca-central-1.amazonaws.com/qa/";
@@ -344,12 +573,23 @@ class Admin extends Component {
     let from = "'" + self.state.fromTransactionTime + "'";
     let to = "'" + self.state.toTransactionTime + "'";
 
-        $.get(url + "?" + "from=" + from + "&to=" + to, function(data, status){
-            self.setState({
-                rows: data.rows
-            });
+    $.get(url + "?" + "from=" + from + "&to=" + to, function(data, status) {
+      if (data.rows.length > 0) {
+        var columns = Object.keys(data.rows[0]).map((key, id) => {
+          return {
+            Header: key,
+            accessor: key
+          };
         });
-  };
+      } else {
+        alert("No results found");
+      }
+      self.setState({
+        rows: data.rows,
+        cols: columns
+      });
+    });
+  }
 
   handleQ17() {
     const url = "https://j948s9iktl.execute-api.ca-central-1.amazonaws.com/qa/";
@@ -358,12 +598,31 @@ class Admin extends Component {
     let outreach_id = "'" + self.state.outreachId + "'";
     let volunteer_id = "'" + self.state.volunteerId + "'";
 
-        $.get(url + "?" + "outreach_id=" + outreach_id + "&volunteer_id=" + volunteer_id, function(data, status){
-            self.setState({
-                rows: data.rows
-            });
+    $.get(
+      url +
+        "?" +
+        "outreach_id=" +
+        outreach_id +
+        "&volunteer_id=" +
+        volunteer_id,
+      function(data, status) {
+        if (data.rows.length > 0) {
+          var columns = Object.keys(data.rows[0]).map((key, id) => {
+            return {
+              Header: key,
+              accessor: key
+            };
+          });
+        } else {
+          alert("No results found");
+        }
+        self.setState({
+          rows: data.rows,
+          cols: columns
         });
-  };
+      }
+    );
+  }
 
   handleQ18() {
     const url = "https://mou23mohgg.execute-api.ca-central-1.amazonaws.com/qa/";
@@ -372,12 +631,26 @@ class Admin extends Component {
     let loc = "'" + self.state.location + "'";
     let city = "'" + self.state.city + "'";
 
-        $.get(url + "?" + "warehouse_location=" + loc + "&warehouse_city=" + city, function(data, status){
-            self.setState({
-                rows: data.rows
-            });
+    $.get(
+      url + "?" + "warehouse_location=" + loc + "&warehouse_city=" + city,
+      function(data, status) {
+        if (data.rows.length > 0) {
+          var columns = Object.keys(data.rows[0]).map((key, id) => {
+            return {
+              Header: key,
+              accessor: key
+            };
+          });
+        } else {
+          alert("No results found");
+        }
+        self.setState({
+          rows: data.rows,
+          cols: columns
         });
-  };
+      }
+    );
+  }
 
   handleQ19() {
     const url = "https://d1sue73n0k.execute-api.ca-central-1.amazonaws.com/qa/";
@@ -385,12 +658,23 @@ class Admin extends Component {
     let self = this;
     let id = "'" + self.state.distributorId + "'";
 
-        $.get(url + "?" + "id=" + id, function(data, status){
-            self.setState({
-                rows: data.rows
-            });
+    $.get(url + "?" + "id=" + id, function(data, status) {
+      if (data.rows.length > 0) {
+        var columns = Object.keys(data.rows[0]).map((key, id) => {
+          return {
+            Header: key,
+            accessor: key
+          };
         });
-  };
+      } else {
+        alert("No results found");
+      }
+      self.setState({
+        rows: data.rows,
+        cols: columns
+      });
+    });
+  }
 
   render() {
     return (
@@ -399,8 +683,6 @@ class Admin extends Component {
           <h1 className="f3 f2-m f1-l fw4 black-90 mv3">Admin</h1>
           <hr />
         </header>
-
-        <JsonTable rows={this.state.rows} />
         <div className="pa4">
           <div className="overflow-auto">
             <table className="f6 w-100 mw8 center" cellSpacing="0">
@@ -1221,6 +1503,8 @@ class Admin extends Component {
                 </tr>
               </tbody>
             </table>
+
+            <ReactTable data={this.state.rows} columns={this.state.cols} defaultPageSize={10} filterable={true}  className="-striped -highlight"/>
           </div>
         </div>
       </div>
