@@ -44,14 +44,18 @@ class Recipient extends Component {
             accessor: key
           };
         });
+
+        self.setState({
+          rows: data.rows,
+          cols: columns,
+          showTable: true
+        });
       } else {
         alert("No results found");
+        self.setState({
+          showTable: false
+        });
       }
-      self.setState({
-        rows: data.rows,
-        cols: columns,
-        showTable: true
-      });
     });
   }
 
@@ -72,14 +76,18 @@ class Recipient extends Component {
               accessor: key
             };
           });
+
+          self.setState({
+            rows: data.rows,
+            cols: columns,
+            showTable: true
+          });
         } else {
           alert("No results found");
+          self.setState({
+            showTable: false
+          });
         }
-        self.setState({
-          rows: data.rows,
-          cols: columns,
-          showTable: true
-        });
       }
     );
   }
@@ -94,16 +102,22 @@ class Recipient extends Component {
     if (this.state.showTable) {
       return (
         <div>
-          <div className="contain">
-            <p onClick={this.closeModal.bind(this)} className="float-right">&#10005;</p>
+          <header className="tc ph4">
+            <h1 className="f3 f2-m f1-l fw4 black-90 mv3">Output Table</h1>
+            <hr />
+          </header>
+          <div className="pa4 overflow-auto">
+            <div className="contain">
+              <p onClick={this.closeModal.bind(this)} className="float-right">&#10005;</p>
+            </div>
+            <ReactTable
+              data={this.state.rows}
+              columns={this.state.cols}
+              defaultPageSize={10}
+              filterable={true}
+              className="-striped -highlight"
+            />
           </div>
-          <ReactTable 
-            data={this.state.rows} 
-            columns={this.state.cols} 
-            defaultPageSize={10} 
-            filterable={true} 
-            className="-striped -highlight"
-          />
         </div>
       );
     }
