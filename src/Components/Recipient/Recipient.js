@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import "../Admin/Admin.css";
+import Input from "../Input/Input";
+import SubmitButton from "../SubmitButton/SubmitButton";
 import $ from "jquery";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
+
 class Recipient extends Component {
   constructor() {
     super();
@@ -105,12 +108,7 @@ class Recipient extends Component {
           </header>
           <div className="pa4 overflow-auto">
             <div className="contain">
-              <p
-                onClick={this.closeModal.bind(this)}
-                className="float-right span"
-              >
-                &#10005;
-              </p>
+              <p onClick={this.closeModal.bind(this)} className="float-right">&#10005;</p>
             </div>
             <ReactTable
               data={this.state.rows}
@@ -126,11 +124,11 @@ class Recipient extends Component {
 
     return (
       <div>
-        <header className="tc ph4">
+        <header className="tc">
           <h1 className="f3 f2-m f1-l fw4 black-90 mv3">Recipient</h1>
           <hr />
         </header>
-        <div className="pa4">
+        <div>
           <div className="overflow-auto">
             <table className="f6 w-100 mw8 center" cellSpacing="0">
               <thead>
@@ -146,31 +144,17 @@ class Recipient extends Component {
                   <td className="pa3">
                     View previous transactions with relevant fields
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_1"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Recipient ID"
-                            onChange={this.handleRecipientIdChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Recipient ID" onChange={this.handleRecipientIdChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Submit"
-                          onClick={this.handleQ1.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Submit" onClick={this.handleQ1.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -178,41 +162,18 @@ class Recipient extends Component {
                   <td className="pa3">
                     View available food at certain locations
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_2"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Warehouse Location"
-                            onChange={this.handleWarehouseLocationChange.bind(
-                              this
-                            )}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Warehouse City"
-                            onChange={this.handleWarehouseCityChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Warehouse Location" onChange={this.handleWarehouseLocationChange.bind(this)} />
+                        <Input placeholder="Warehouse City" onChange={this.handleWarehouseCityChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Submit"
-                          onClick={this.handleQ2.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Submit" onClick={this.handleQ2.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
               </tbody>
             </table>
