@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import $ from "jquery";
 import "react-table/react-table.css";
 import "./Admin.css";
+import Input from "../Input/Input";
+import SubmitButton from "../SubmitButton/SubmitButton";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-
-// const JsonTable = require("ts-react-json-table");
 
 class Admin extends Component {
   constructor() {
@@ -743,47 +743,19 @@ class Admin extends Component {
                     type found at a certain warehouse (to get a detailed
                     understanding of the food’s availability).
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_1"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Name"
-                            onChange={this.handleNameChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Location"
-                            onChange={this.handleLocationChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="City"
-                            onChange={this.handleCityChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Name" onChange={this.handleNameChange.bind(this)} />
+                        <Input placeholder="Location" onChange={this.handleLocationChange.bind(this)} />
+                        <Input placeholder="City" onChange={this.handleCityChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Submit"
-                          onClick={this.handleQ1.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Submit" onClick={this.handleQ1.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -794,39 +766,18 @@ class Admin extends Component {
                     a particular warehouse (in case a recipient complains about
                     food found at a particular warehouse)
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_2"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Location"
-                            onChange={this.handleLocationChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="City"
-                            onChange={this.handleCityChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Location" onChange={this.handleLocationChange.bind(this)} />
+                        <Input placeholder="City" onChange={this.handleCityChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Submit"
-                          onClick={this.handleQ2.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Submit" onClick={this.handleQ2.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -834,31 +785,17 @@ class Admin extends Component {
                   <td className="pa3">
                     View previous transactions with relevant fields
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_3"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Distibutor ID"
-                            onChange={this.handleDistributorIdChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Distributor ID" onChange={this.handleDistributorIdChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Submit"
-                          onClick={this.handleQ3.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Submit" onClick={this.handleQ3.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -866,74 +803,28 @@ class Admin extends Component {
                   <td className="pa3">
                     Administrator can INSERT/DELETE an office
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_4"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Office Location"
-                            onChange={this.handleOfficeLocationChange.bind(
-                              this
-                            )}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Office City"
-                            onChange={this.handleOfficeCityChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Office Location" onChange={this.handleOfficeLocationChange.bind(this)} />
+                        <Input placeholder="Office City" onChange={this.handleOfficeCityChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Insert"
-                          onClick={this.handleQ4.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Insert" onClick={this.handleQ4.bind(this)} />
                     </form>
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_5"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Office Location"
-                            onChange={this.handleOfficeLocationChange.bind(
-                              this
-                            )}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Office City"
-                            onChange={this.handleOfficeCityChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Office Location" onChange={this.handleOfficeLocationChange.bind(this)} />
+                        <Input placeholder="Office City" onChange={this.handleOfficeCityChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Delete"
-                          onClick={this.handleQ5.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Delete" onClick={this.handleQ5.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -941,115 +832,39 @@ class Admin extends Component {
                   <td className="pa3">
                     Administrator can UPDATE/DELETE transactions
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_6"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Office Location"
-                            onChange={this.handleOfficeLocationChange.bind(
-                              this
-                            )}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Office City"
-                            onChange={this.handleOfficeCityChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Transaction ID"
-                            onChange={this.handleTransactionIdChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Office Location" onChange={this.handleOfficeLocationChange.bind(this)} />
+                        <Input placeholder="Office City" onChange={this.handleOfficeCityChange.bind(this)} />
+                        <Input placeholder="Transaction ID" onChange={this.handleTransactionIdChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Update"
-                          onClick={this.handleQ6.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Update" onClick={this.handleQ6.bind(this)} />
                     </form>
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_7"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Transaction Date"
-                            onChange={this.handleTransactionDateChange.bind(
-                              this
-                            )}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Transaction Time"
-                            onChange={this.handleTransactionTimeChange.bind(
-                              this
-                            )}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Transaction ID"
-                            onChange={this.handleTransactionIdChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Transaction Date" onChange={this.handleTransactionDateChange.bind(this)} />
+                        <Input placeholder="Transaction Time" onChange={this.handleTransactionTimeChange.bind(this)} />
+                        <Input placeholder="Transaction ID" onChange={this.handleTransactionIdChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Update"
-                          onClick={this.handleQ7.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Update" onClick={this.handleQ7.bind(this)} />
                     </form>
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_8"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Transaction ID"
-                            onChange={this.handleTransactionIdChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Transaction ID" onChange={this.handleTransactionIdChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Delete"
-                          onClick={this.handleQ8.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Delete" onClick={this.handleQ8.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -1059,31 +874,17 @@ class Admin extends Component {
                     recipients, donors, offices, outreach, food, food types, and
                     warehouses
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_9"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Table Name"
-                            onChange={this.handleTableNameChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Table Name" onChange={this.handleTableNameChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Submit"
-                          onClick={this.handleQ9.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Submit" onClick={this.handleQ9.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -1092,111 +893,33 @@ class Admin extends Component {
                     An administrator can add a volunteer by an INSERT of the
                     volunteer in the distributor or administrator table.
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_10"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Table Name"
-                            onChange={this.handleTableNameChange.bind(this)}
-                          />
-                        </div>
-
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="volunteer ID"
-                            onChange={this.handleVolunteerIdChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Location"
-                            onChange={this.handleLocationChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="City"
-                            onChange={this.handleCityChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Volunteer name"
-                            onChange={this.handleNameChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="email"
-                            placeholder="email"
-                            onChange={this.handleEmailChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Table Name" onChange={this.handleTableNameChange.bind(this)} />
+                        <Input placeholder="Volunteer ID" onChange={this.handleVolunteerIdChange.bind(this)} />
+                        <Input placeholder="Location" onChange={this.handleLocationChange.bind(this)} />
+                        <Input placeholder="City" onChange={this.handleCityChange.bind(this)} />
+                        <Input placeholder="Volunteer Name" onChange={this.handleNameChange.bind(this)} />
+                        <Input placeholder="Email" onChange={this.handleEmailChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Insert"
-                          onClick={this.handleQ10.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Insert" onClick={this.handleQ10.bind(this)} />
                     </form>
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_10.5"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Volunteer name"
-                            onChange={this.handleNameChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="email"
-                            placeholder="email"
-                            onChange={this.handleEmailChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="volunteer ID"
-                            onChange={this.handleVolunteerIdChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Volunteer Name" onChange={this.handleNameChange.bind(this)} />
+                        <Input placeholder="Email" onChange={this.handleEmailChange.bind(this)} />
+                        <Input placeholder="Volunteer ID" onChange={this.handleVolunteerIdChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Insert"
-                          onClick={this.handleQ105.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Insert" onClick={this.handleQ105.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -1205,39 +928,18 @@ class Admin extends Component {
                     An administrator can DELETE distributors that worked at a
                     certain warehouse (when the warehouse shuts downs)
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_11"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Location"
-                            onChange={this.handleLocationChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="City"
-                            onChange={this.handleCityChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Location" onChange={this.handleLocationChange.bind(this)} />
+                        <Input placeholder="City" onChange={this.handleCityChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Delete"
-                          onClick={this.handleQ11.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Delete" onClick={this.handleQ11.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -1246,31 +948,17 @@ class Admin extends Component {
                     An administrator can delete a volunteer by a DELETE of the
                     volunteer in the distributor or administrator table
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_12"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Volunteer ID"
-                            onChange={this.handleVolunteerIdChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Volunteer ID" onChange={this.handleVolunteerIdChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Delete"
-                          onClick={this.handleQ12.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Delete" onClick={this.handleQ12.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -1280,22 +968,15 @@ class Admin extends Component {
                     for ( and show count). In other words, show number of
                     volunteers per event
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_13"
                         className="ba b--transparent ph0 mh0"
                       />
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Submit"
-                          onClick={this.handleQ13.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Submit" onClick={this.handleQ13.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -1307,61 +988,20 @@ class Admin extends Component {
                     correctly entered or to track down the office that was
                     overseeing a transaction and when the transaction occurred
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_14"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Office Location"
-                            onChange={this.handleOfficeLocationChange.bind(
-                              this
-                            )}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Office City"
-                            onChange={this.handleOfficeCityChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Transaction Date"
-                            onChange={this.handleTransactionDateChange.bind(
-                              this
-                            )}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Transaction Time"
-                            onChange={this.handleTransactionTimeChange.bind(
-                              this
-                            )}
-                          />
-                        </div>
+                        <Input placeholder="Office Location" onChange={this.handleOfficeLocationChange.bind(this)} />
+                        <Input placeholder="Office City" onChange={this.handleOfficeCityChange.bind(this)} />
+                        <Input placeholder="Transaction Date" onChange={this.handleTransactionDateChange.bind(this)} />
+                        <Input placeholder="Transaction Time" onChange={this.handleTransactionTimeChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Submit"
-                          onClick={this.handleQ14.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Submit" onClick={this.handleQ14.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -1370,22 +1010,15 @@ class Admin extends Component {
                     (Division) An admin could get name and id’s of volunteers
                     who signed up for all outreach events
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_15"
                         className="ba b--transparent ph0 mh0"
                       />
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Submit"
-                          onClick={this.handleQ15.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Submit" onClick={this.handleQ15.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -1394,81 +1027,35 @@ class Admin extends Component {
                     Admin can observe which warehouses were involved in the most
                     transactions for a given time period
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_16"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="From Transaction Time"
-                            onChange={this.handleFromTransactionTimeChange.bind(
-                              this
-                            )}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="To Transaction Time"
-                            onChange={this.handleToTransactionTimeChange.bind(
-                              this
-                            )}
-                          />
-                        </div>
+                        <Input placeholder="From Transaction Time" onChange={this.handleFromTransactionTimeChange.bind(this)} />
+                        <Input placeholder="To Transaction Time" onChange={this.handleToTransactionTimeChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Submit"
-                          onClick={this.handleQ16.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Submit" onClick={this.handleQ16.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
                   <td className="pa3">14.</td>
                   <td className="pa3">Signup for outreach event</td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_17"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Volunteer ID"
-                            onChange={this.handleVolunteerIdChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Outreach ID"
-                            onChange={this.handleOutreachIdChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Volunteer ID" onChange={this.handleVolunteerIdChange.bind(this)} />
+                        <Input placeholder="Outreach ID" onChange={this.handleOutreachIdChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Submit"
-                          onClick={this.handleQ17.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Submit" onClick={this.handleQ17.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -1477,39 +1064,18 @@ class Admin extends Component {
                     For a particular warehouse, group all the foods by food
                     types (and show their count)
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_18"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Location"
-                            onChange={this.handleLocationChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="City"
-                            onChange={this.handleCityChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Location" onChange={this.handleLocationChange.bind(this)} />
+                        <Input placeholder="City" onChange={this.handleCityChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Submit"
-                          onClick={this.handleQ18.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Submit" onClick={this.handleQ18.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -1517,31 +1083,17 @@ class Admin extends Component {
                   <td className="pa3">
                     View food at the warehouse where the distributor works
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_19"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Distributor ID"
-                            onChange={this.handleDistributorIdChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Distributor ID" onChange={this.handleDistributorIdChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Submit"
-                          onClick={this.handleQ19.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Submit" onClick={this.handleQ19.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
               </tbody>
             </table>

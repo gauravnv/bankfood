@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import $ from "jquery";
 import "react-table/react-table.css";
 import "../Admin/Admin.css";
+import Input from "../Input/Input";
+import SubmitButton from "../SubmitButton/SubmitButton";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 
@@ -382,7 +384,7 @@ class Distributor extends Component {
     return (
       <div>
         <header className="tc">
-          <h1 class="f3 f2-m f1-l fw4 black-90 mv3">Distributor</h1>
+          <h1 className="f3 f2-m f1-l fw4 black-90 mv3">Distributor</h1>
           <hr />
         </header>
 
@@ -403,39 +405,18 @@ class Distributor extends Component {
                     For a particular warehouse, group all the foods by food
                     types (and show their count)
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_1"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Location"
-                            onChange={this.handleLocationChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="City"
-                            onChange={this.handleCityChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Location" onChange={this.handleLocationChange.bind(this)} />
+                        <Input placeholder="City" onChange={this.handleCityChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Submit"
-                          onClick={this.handleQ1.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Submit" onClick={this.handleQ1.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -443,31 +424,17 @@ class Distributor extends Component {
                   <td className="pa3">
                     View food at the warehouse where the distributor works
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_2"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Distributor ID"
-                            onChange={this.handleDistributorIdChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Distributor ID" onChange={this.handleDistributorIdChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Submit"
-                          onClick={this.handleQ2.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Submit" onClick={this.handleQ2.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -475,22 +442,15 @@ class Distributor extends Component {
                   <td className="pa3">
                     Distributors can query for list of food and food types
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form action="#dtable" acceptCharset="utf-8">
                       <fieldset
                         id="query_3"
                         className="ba b--transparent ph0 mh0"
                       />
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Submit"
-                          onClick={this.handleQ3.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Submit" onClick={this.handleQ3.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -500,49 +460,19 @@ class Distributor extends Component {
                     a certain warehouse to be stored in a different warehouse
                     (relocating all food from one warehouse to another)
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_4"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Food ID"
-                            onChange={this.handleFoodIdChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Warehouse Location"
-                            onChange={this.handleWarehouseLocationChange.bind(
-                              this
-                            )}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Warehouse City"
-                            onChange={this.handleWarehouseCityChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Food ID" onChange={this.handleFoodIdChange.bind(this)} />
+                        <Input placeholder="Warehouse Location" onChange={this.handleWarehouseLocationChange.bind(this)} />
+                        <Input placeholder="Warehouse City" onChange={this.handleWarehouseCityChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Update"
-                          onClick={this.handleQ4.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Update" onClick={this.handleQ4.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -550,149 +480,51 @@ class Distributor extends Component {
                   <td className="pa3">
                     A distributor can UPDATE a transaction
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_5"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Transaction ID"
-                            onChange={this.handleTransactionIdChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Transaction Date"
-                            onChange={this.handleTransactionDateChange.bind(
-                              this
-                            )}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Transaction Time"
-                            onChange={this.handleTransactionTimeChange.bind(
-                              this
-                            )}
-                          />
-                        </div>
+                        <Input placeholder="Transaction ID" onChange={this.handleTransactionIdChange.bind(this)} />
+                        <Input placeholder="Transaction Date" onChange={this.handleTransactionDateChange.bind(this)} />
+                        <Input placeholder="Transaction Time" onChange={this.handleTransactionTimeChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Update"
-                          onClick={this.handleQ5.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Update" onClick={this.handleQ5.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
                   <td className="pa3">6.</td>
                   <td className="pa3">Distributors can INSERT/DELETE food</td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_6"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Food ID"
-                            onChange={this.handleFoodIdChange.bind(this)}
-                          />
-                        </div>
-
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Food Type ID"
-                            onChange={this.handleFoodTypeIdChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Donor ID"
-                            onChange={this.handleDonorIdChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Expiry Date"
-                            onChange={this.handleExpiryDateChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Warehouse Location"
-                            onChange={this.handleWarehouseLocationChange.bind(
-                              this
-                            )}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Warehouse City"
-                            onChange={this.handleWarehouseCityChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Food ID" onChange={this.handleFoodIdChange.bind(this)} />
+                        <Input placeholder="Food Type ID" onChange={this.handleFoodTypeIdChange.bind(this)} />
+                        <Input placeholder="Donor ID" onChange={this.handleDonorIdChange.bind(this)} />
+                        <Input placeholder="Expiry Date" onChange={this.handleExpiryDateChange.bind(this)} />
+                        <Input placeholder="Warehouse Location" onChange={this.handleWarehouseLocationChange.bind(this)} />
+                        <Input placeholder="Warehouse City" onChange={this.handleWarehouseCityChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Insert"
-                          onClick={this.handleQ6.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Insert" onClick={this.handleQ6.bind(this)} />
                     </form>
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_24"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Food ID"
-                            onChange={this.handleFoodIdChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Food ID" onChange={this.handleFoodIdChange.bind(this)} />
                       </fieldset>
                     </form>
                     <form acceptCharset="utf-8">
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Delete"
-                          onClick={this.handleQ8.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Delete" onClick={this.handleQ8.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
 
                 <tr className="stripe-dark">
@@ -701,93 +533,24 @@ class Distributor extends Component {
                     A distributor can add a transaction by an INSERT of the
                     transaction in the transactions table
                   </td>
-                  <article className="pa4 black-80">
+                  <div className="pa4 black-80">
                     <form acceptCharset="utf-8">
                       <fieldset
                         id="query_8"
                         className="ba b--transparent ph0 mh0"
                       >
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Transaction ID"
-                            onChange={this.handleTransactionIdChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Food ID"
-                            onChange={this.handleFoodIdChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Distributor ID"
-                            onChange={this.handleDistributorIdChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Recipient ID"
-                            onChange={this.handleRecipientIdChange.bind(this)}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Transaction Date"
-                            onChange={this.handleTransactionDateChange.bind(
-                              this
-                            )}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Transaction Time"
-                            onChange={this.handleTransactionTimeChange.bind(
-                              this
-                            )}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Office Location"
-                            onChange={this.handleOfficeLocationChange.bind(
-                              this
-                            )}
-                          />
-                        </div>
-                        <div className="mt3">
-                          <input
-                            className="pa2 input-reset ba bg-transparent"
-                            type="text"
-                            placeholder="Office City"
-                            onChange={this.handleOfficeCityChange.bind(this)}
-                          />
-                        </div>
+                        <Input placeholder="Transaction ID" onChange={this.handleTransactionIdChange.bind(this)} />
+                        <Input placeholder="Food ID" onChange={this.handleFoodIdChange.bind(this)} />
+                        <Input placeholder="Distributor ID" onChange={this.handleDistributorIdChange.bind(this)} />
+                        <Input placeholder="Recipient ID" onChange={this.handleRecipientIdChange.bind(this)} />
+                        <Input placeholder="Transaction Date" onChange={this.handleTransactionDateChange.bind(this)} />
+                        <Input placeholder="Transaction Time" onChange={this.handleTransactionTimeChange.bind(this)} />
+                        <Input placeholder="Office Location" onChange={this.handleOfficeLocationChange.bind(this)} />
+                        <Input placeholder="Office City" onChange={this.handleOfficeCityChange.bind(this)} />
                       </fieldset>
-                      <div className="mt3">
-                        <input
-                          className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
-                          type="button"
-                          value="Insert"
-                          onClick={this.handleQ9.bind(this)}
-                        />
-                      </div>
+                      <SubmitButton placeholder="Insert" onClick={this.handleQ9.bind(this)} />
                     </form>
-                  </article>
+                  </div>
                 </tr>
               </tbody>
             </table>
