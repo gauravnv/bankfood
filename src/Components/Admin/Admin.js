@@ -772,6 +772,8 @@ class Admin extends Component {
           showTable: false
         });
       }
+    });
+  }
 
   closeModal() {
     this.setState({
